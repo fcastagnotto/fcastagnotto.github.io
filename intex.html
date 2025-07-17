@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Francesco Castagnotto - Embedded Linux Engineer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #ffd700;
+        }
+
+        /* Hero Section - Compact */
+        .hero {
+            padding: 100px 0 50px;
+            color: white;
+            text-align: center;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .profile-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            object-fit: cover;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .hero-text {
+            text-align: left;
+            max-width: 600px;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Sections - Compact */
+        .section {
+            padding: 3rem 0;
+            background: white;
+        }
+
+        .section:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .section h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: #333;
+            position: relative;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+        }
+
+        /* Cards - Compact */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            border-left: 4px solid #667eea;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #667eea;
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            color: #333;
+        }
+
+        .card p {
+            color: #666;
+            line-height: 1.5;
+        }
+
+        /* Skills - New attractive design */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .skill-category {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .skill-category h3 {
+            color: #333;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            text-align: center;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #667eea;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: transform 0.2s ease;
+        }
+
+        .skill-tag:hover {
+            transform: scale(1.05);
+        }
+
+        /* Contact Form - Compact */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 1rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Footer - Compact */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #ffd700;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-text {
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">Francesco Castagnotto</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#thesis">Thesis</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <img src="https://fcastagnotto.github.io/images/profile.jpg" alt="Francesco Castagnotto" class="profile-photo">
+                <div class="hero-text">
+                    <h1>Hello world!</h1>
+                    <p>I'm Francesco Castagnotto,</p>
+                    <p>an <strong>Embedded Linux Engineer specializing in BSP and middleware development, with a strong passion for the Yocto Project and open-source technologies.</strong></p>
+                    <p>I earned a Master's Degree in Computer Engineering – Embedded Systems at the Polytechnic University of Turin, where I focused on microprocessor architectures and real-time systems</p>
+                    <p>Over the years, I’ve gained experience in the automotive, building automation, and computer hardware industries, contributing to embedded Linux solutions across a range of platforms.</p>
+                    <p>I'm passionate about Linux distributions, embedded development workflows, and any innovation that helps us rethink how technology enhances our lives.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="cards-grid">
+                <div class="card fade-in">
+                    <div class="card-icon">🎓</div>
+                    <h3>Education</h3>
+                    <p>Master’s Degree in Computer Engineering – Embedded Systems at the Polytechnic University of Turin, with a deep focus on microprocessor systems and low-level software design.</p>
+                </div>
+                <div class="card fade-in">
+                    <div class="card-icon">💼</div>
+                    <h3>Experience</h3>
+                    <p>Professional experience as an Embedded Linux Engineer in sectors such as automotive, building automation, and computer hardware, where I contributed to BSP integration, device driver development, and embedded platform customization.</p>
+                </div>
+                <div class="card fade-in">
+                    <div class="card-icon">🚀</div>
+                    <h3>Passion</h3>
+                    <p>I’m deeply enthusiastic about embedded Linux, the Yocto ecosystem, free and open-source software, and everything that fosters technological creativity and innovation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="section">
+        <div class="container">
+            <h2>Technical Skills</h2>
+            <div class="skills-container">
+                <div class="skill-category fade-in">
+                    <h3>Embedded Software</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">bash</span>
+                        <span class="skill-tag">C</span>
+                        <span class="skill-tag">C++</span>
+                        <span class="skill-tag">python</span>
+                        <span class="skill-tag">awk</span>
+                    </div>
+                </div>
+                <div class="skill-category fade-in">
+                    <h3>BSP Build</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Yocto</span>
+                        <span class="skill-tag">Linux kernel</span>
+                        <span class="skill-tag">buildroot</span>
+                    </div>
+                </div>
+                <div class="skill-category fade-in">
+                    <h3>Build, Debug & Patches</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Linux drivers</span>
+                        <span class="skill-tag">device tree</span>
+                        <span class="skill-tag">u-boot</span>
+                    </div>
+                </div>
+                <div class="skill-category fade-in">
+                    <h3>Cross-compilation</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">ARM</span>
+                        <span class="skill-tag">ARMhf</span>
+                        <span class="skill-tag">ARM64</span>
+                        <span class="skill-tag">i386</span>
+                    </div>
+                </div>
+                <div class="skill-category fade-in">
+                    <h3>OS Integration</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">SysVinit</span>
+                        <span class="skill-tag">Systemd</span>
+                        <span class="skill-tag">middleware</span>
+                    </div>
+                </div>
+                <div class="skill-category fade-in">
+                    <h3>Version Control</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">GIT</span>
+                        <span class="skill-tag">Github</span>
+                        <span class="skill-tag">Gitlab</span>
+                        <span class="skill-tag">SVN</span>
+                    </div>
+                </div>
+                <div class="skill-category fade-in">
+                    <h3>High-level Software</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">python</span>
+                        <span class="skill-tag">sql</span>
+                        <span class="skill-tag">html</span>
+                        <span class="skill-tag">php</span>
+                    </div>
+                </div>
+                <div class="skill-category fade-in">
+                    <h3>Teamwork</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Agile</span>
+                        <span class="skill-tag">Scrum</span>
+                        <span class="skill-tag">Jira</span>
+                        <span class="skill-tag">Confluence</span>
+                        <span class="skill-tag">Trello</span>
+                        <span class="skill-tag">Slack</span>
+                    </div>
+                </div>
+                <div class="skill-category fade-in">
+                    <h3>Hardware Debug</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">SoC</span>
+                        <span class="skill-tag">SoM</span>
+                        <span class="skill-tag">OMAP</span>
+                        <span class="skill-tag">Sunxi</span>
+                        <span class="skill-tag">PCBs</span>
+                        <span class="skill-tag">iMX53</span>
+                        <span class="skill-tag">iMX6</span>
+                        <span class="skill-tag">iMX8</span>
+                        <span class="skill-tag">iMX9</span>                                                
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<section id="thesis" class="section">
+  <div class="container">
+    <h2>Master's Thesis</h2>
+    <div class="card fade-in" style="max-width: 900px; margin: 0 auto;">
+      <div class="card-icon">📘</div>
+      <h3>Analysis of Linux Containers Virtualization on ARM Architectures</h3>
+      <p>
+        My experimental thesis focused on evaluating Linux Containers (LXC) performance on ARM-based embedded systems, both single-core and multi-core.
+        The activity involved compiling and building embedded GNU/Linux operating systems for Freescale and Texas Instruments hardware platforms.
+      </p>
+      <p>
+        The project required extensive use of cross-compilation, Linux kernel configuration (via <code>make menuconfig</code>), and custom builds integrating the
+        <strong>Phoronix Test Suite</strong> to benchmark different aspects of system performance.
+      </p>
+      <p>
+        The goal was to measure and demonstrate how Linux Containers distribute workloads across processor cores. The results confirmed that with as many or fewer containers than CPU cores,
+        each container could be effectively “reserved” on a dedicated core, ensuring optimal separation and parallelism.
+      </p>
+      <p>
+        This work was carried out in collaboration with <strong>Mentor Graphics – Embedded Software Division</strong> and contributed to the
+        <a href="https://github.com/fcastagnotto/lxcbench" target="_blank">Genivi Alliance project <strong>LXCBENCH</strong></a>.
+      </p>
+       <p style="margin-top: 1rem;">
+        📄 Download the full thesis as PDF:  
+        <a href="https://fcastagnotto.github.io/files/CASTAGNOTTOFrancesco_tesi_magistrale.pdf" target="_blank">
+          CASTAGNOTTOFrancesco_tesi_magistrale.pdf
+        </a>
+      </p>
+    </div>
+  </div>
+</section>
+
+
+
+    <section id="contact" class="section">
+        <div class="container">
+            <h2>Contact Me</h2>
+		<form class="contact-form fade-in" action="https://formspree.io/f/xldlddrz" method="POST">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="mailto:fcastagnotto@linux.com" title="Email" target="_blank">&#x1F4E8;</a>
+                <a href="https://www.linkedin.com/in/fcastagnotto/" title="LinkedIn" target="_blank"><i class="fab fa-linkedin"></i></a>
+		<a href="https://fcastagnotto.wordpress.com" title="WordPress Blog" target="_blank"><i class="fab fa-wordpress"></i></a>                
+		<a href="https://github.com/fcastagnotto" title="GitHub" target="_blank"><i class="fab fa-github"></i></a>
+            </div>
+            <p>&copy; 2025 Francesco Castagnotto. All rights reserved.</p>
+            <p>Visit: <strong>fcastagnotto.github.io</strong></p>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header background change on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.backdropFilter = 'blur(15px)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.1)';
+                header.style.backdropFilter = 'blur(10px)';
+            }
+        });
+
+        // Form submission
+        /*document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! I will get back to you soon.');
+            this.reset();
+        });*/
+    </script>
+</body>
+</html>
