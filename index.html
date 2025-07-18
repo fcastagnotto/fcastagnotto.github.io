@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Francesco Castagnotto - Embedded Linux Engineer</title>
@@ -218,14 +218,116 @@
             transform: scale(1.05);
         }
 
-        /* Contact Form - Compact */
-        .contact-form {
-            max-width: 600px;
-            margin: 0 auto;
+        /* Blog iframes - Nuovi stili */
+        .blog-iframe {
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .blog-iframe iframe {
+            width: 100%;
+            max-width: 900px;
+            height: 500px;
+            border: 2px solid #667eea;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .blog-iframe iframe:hover {
+            transform: scale(1.02);
+        }
+
+        /* Contact Section - Nuova struttura */
+        .contact-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+            margin-top: 2rem;
+        }
+
+        .contact-info {
             background: white;
             padding: 2rem;
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            height: fit-content;
+        }
+
+        .contact-info h3 {
+            color: #333;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            text-align: center;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #667eea;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding: 0.8rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background: #e9ecef;
+            transform: translateX(5px);
+        }
+
+        .contact-item i {
+            font-size: 1.5rem;
+            color: #667eea;
+            margin-right: 1rem;
+            width: 30px;
+            text-align: center;
+        }
+
+        .contact-item .contact-text {
+            flex: 1;
+        }
+
+        .contact-item .contact-label {
+            font-weight: bold;
+            color: #333;
+            display: block;
+            margin-bottom: 0.2rem;
+        }
+
+        .contact-item .contact-value {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .contact-item a {
+            color: #667eea;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: #764ba2;
+        }
+
+        /* Contact Form - Aggiornato */
+        .contact-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-form h3 {
+            color: #333;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            text-align: center;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #667eea;
         }
 
         .form-group {
@@ -346,6 +448,15 @@
             .skills-container {
                 grid-template-columns: 1fr;
             }
+
+            .contact-section {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .blog-iframe iframe {
+                height: 400px;
+            }
         }
     </style>
 </head>
@@ -359,6 +470,7 @@
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#thesis">Thesis</a></li>
                 <li><a href="#contact">Contact</a></li>
+                <li><a href="#blog">Blog</a></li>
             </ul>
         </nav>
     </header>
@@ -372,7 +484,7 @@
                     <p>I'm Francesco Castagnotto,</p>
                     <p>an <strong>Embedded Linux Engineer specializing in BSP and middleware development, with a strong passion for the Yocto Project and open-source technologies.</strong></p>
                     <p>I earned a Master's Degree in Computer Engineering – Embedded Systems at the Polytechnic University of Turin, where I focused on microprocessor architectures and real-time systems</p>
-                    <p>Over the years, I’ve gained experience in the automotive, building automation, and computer hardware industries, contributing to embedded Linux solutions across a range of platforms.</p>
+                    <p>Over the years, I've gained experience in the automotive, building automation, and computer hardware industries, contributing to embedded Linux solutions across a range of platforms.</p>
                     <p>I'm passionate about Linux distributions, embedded development workflows, and any innovation that helps us rethink how technology enhances our lives.</p>
                 </div>
             </div>
@@ -386,7 +498,7 @@
                 <div class="card fade-in">
                     <div class="card-icon">🎓</div>
                     <h3>Education</h3>
-                    <p>Master’s Degree in Computer Engineering – Embedded Systems at the Polytechnic University of Turin, with a deep focus on microprocessor systems and low-level software design.</p>
+                    <p>Master's Degree in Computer Engineering – Embedded Systems at the Polytechnic University of Turin, with a deep focus on microprocessor systems and low-level software design.</p>
                 </div>
                 <div class="card fade-in">
                     <div class="card-icon">💼</div>
@@ -396,7 +508,7 @@
                 <div class="card fade-in">
                     <div class="card-icon">🚀</div>
                     <h3>Passion</h3>
-                    <p>I’m deeply enthusiastic about embedded Linux, the Yocto ecosystem, free and open-source software, and everything that fosters technological creativity and innovation.</p>
+                    <p>I'm deeply enthusiastic about embedded Linux, the Yocto ecosystem, free and open-source software, and everything that fosters technological creativity and innovation.</p>
                 </div>
             </div>
         </div>
@@ -476,6 +588,7 @@
                         <span class="skill-tag">Confluence</span>
                         <span class="skill-tag">Trello</span>
                         <span class="skill-tag">Slack</span>
+                        <span class="skill-tag">Teams</span>
                     </div>
                 </div>
                 <div class="skill-category fade-in">
@@ -512,7 +625,7 @@
       </p>
       <p>
         The goal was to measure and demonstrate how Linux Containers distribute workloads across processor cores. The results confirmed that with as many or fewer containers than CPU cores,
-        each container could be effectively “reserved” on a dedicated core, ensuring optimal separation and parallelism.
+        each container could be effectively "reserved" on a dedicated core, ensuring optimal separation and parallelism.
       </p>
       <p>
         This work was carried out in collaboration with <strong>Mentor Graphics – Embedded Software Division</strong> and contributed to the
@@ -528,40 +641,137 @@
   </div>
 </section>
 
-
-
     <section id="contact" class="section">
         <div class="container">
             <h2>Contact Me</h2>
-		<form class="contact-form fade-in" action="https://formspree.io/f/xldlddrz" method="POST">
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" name="name" required>
+            <div class="contact-section fade-in">
+                <div class="contact-info">
+                    <h3>Get in Touch</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div class="contact-text">
+                            <span class="contact-label">Email</span>
+                            <span class="contact-value">
+                                <a href="mailto:fcastagnotto@linux.com">fcastagnotto@linux.com</a>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-linkedin"></i>
+                        <div class="contact-text">
+                            <span class="contact-label">LinkedIn</span>
+                            <span class="contact-value">
+                                <a href="https://www.linkedin.com/in/fcastagnotto/" target="_blank">linkedin.com/in/fcastagnotto</a>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-github"></i>
+                        <div class="contact-text">
+                            <span class="contact-label">GitHub</span>
+                            <span class="contact-value">
+                                <a href="https://github.com/fcastagnotto" target="_blank">github.com/fcastagnotto</a>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-wordpress"></i>
+                        <div class="contact-text">
+                            <span class="contact-label">Blog</span>
+                            <span class="contact-value">
+                                <a href="https://fcastagnotto.wordpress.com" target="_blank">fcastagnotto.wordpress.com</a>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-globe"></i>
+                        <div class="contact-text">
+                            <span class="contact-label">Website</span>
+                            <span class="contact-value">
+                                <a href="https://fcastagnotto.github.io" target="_blank">fcastagnotto.github.io</a>
+                            </span>
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="subject">Subject</label>
-                    <input type="text" id="subject" name="subject" required>
-                </div>
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" rows="5" required></textarea>
-                </div>
-                <button type="submit" class="submit-btn">Send Message</button>
-            </form>
+                
+                <form class="contact-form" action="https://formspree.io/f/xldlddrz" method="POST">
+                    <h3>Send a Message</h3>
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
         </div>
     </section>
+
+<section id="blog" class="section">
+  <div class="container">
+    <h2>Interesting Blog Posts</h2>
+
+    <div class="blog-iframe">
+      <iframe src="https://fcastagnotto.wordpress.com/2020/05/25/gpio-expander-mcp23s17-on-linux-embedded/" 
+              title="GPIO Expander"
+              loading="lazy"
+              frameborder="0"></iframe>       
+    </div>
+  <div class="blog-iframe">
+    <iframe src="https://fcastagnotto.wordpress.com/2025/02/26/i-mx93-boot-from-emmc/"
+              title="iMX93 boot from eMMC"
+              loading="lazy"
+              frameborder="0"></iframe> 
+    </div>
+  </div>      
+    <div class="blog-iframe">
+      <iframe src="https://fcastagnotto.wordpress.com/2014/09/12/reinstall-grub-with-a-gnulinux-livecd-or-liveusb/" 
+              title="Reinstall GRUB with a GNU\Linux LiveCD or LiveUSB"
+              loading="lazy"
+              frameborder="0"></iframe> 
+    </div>
+    <div class="blog-iframe">
+      <iframe src="https://fcastagnotto.wordpress.com/2013/04/29/usb_modeswitch-ubuntu-systems/" 
+              title="USB_Modeswitch"
+              loading="lazy"
+              frameborder="0"></iframe> 
+    </div>
+  </div>
+  <div class="blog-iframe">
+    <iframe src="https://fcastagnotto.wordpress.com/2024/05/27/fix-of-endorfy-wireless-keyboard-on-gnu-linux/"
+              title="Endorfy wireless keyboard on GNU/Linux"
+              loading="lazy"
+              frameborder="0"></iframe> 
+    </div>
+  </div>
+  <div class="blog-iframe">
+    <iframe src="https://fcastagnotto.wordpress.com/2025/04/03/boinc-donate-your-idle-computing-to-science/"
+              title="Boinc - donate your idle computing to science"
+              loading="lazy"
+              frameborder="0"></iframe> 
+    </div>
+  </div>  
+</section>
+
 
     <footer>
         <div class="container">
             <div class="social-links">
                 <a href="mailto:fcastagnotto@linux.com" title="Email" target="_blank">&#x1F4E8;</a>
                 <a href="https://www.linkedin.com/in/fcastagnotto/" title="LinkedIn" target="_blank"><i class="fab fa-linkedin"></i></a>
-		<a href="https://fcastagnotto.wordpress.com" title="WordPress Blog" target="_blank"><i class="fab fa-wordpress"></i></a>                
-		<a href="https://github.com/fcastagnotto" title="GitHub" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://fcastagnotto.wordpress.com" title="WordPress Blog" target="_blank"><i class="fab fa-wordpress"></i></a>                
+        <a href="https://github.com/fcastagnotto" title="GitHub" target="_blank"><i class="fab fa-github"></i></a>
             </div>
             <p>&copy; 2025 Francesco Castagnotto. All rights reserved.</p>
             <p>Visit: <strong>fcastagnotto.github.io</strong></p>
@@ -621,5 +831,6 @@
             this.reset();
         });*/
     </script>
+
 </body>
 </html>
