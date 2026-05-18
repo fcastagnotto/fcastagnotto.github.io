@@ -2,9 +2,11 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Francesco Castagnotto - Embedded Linux Engineer</title>
+    <title>Francesco Castagnotto - Senior Embedded Linux Platform Engineer</title>
     <style>
         * {
             margin: 0;
@@ -13,7 +15,7 @@
         }
 
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Inter', 'Arial', sans-serif;
             line-height: 1.6;
             color: #333;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -67,44 +69,254 @@
             color: #ffd700;
         }
 
-        /* Hero Section - Compact */
+        /* Hero Section - New rich design */
         .hero {
-            padding: 100px 0 50px;
+            padding: 90px 0 0;
             color: white;
-            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            align-items: stretch;
         }
 
-        .hero-content {
+        .hero .container {
             display: flex;
-            align-items: center;
-            justify-content: center;
+            flex-direction: column;
+            width: 100%;
+        }
+
+        .hero-main {
+            display: grid;
+            grid-template-columns: 1fr auto;
             gap: 3rem;
+            align-items: center;
+            padding: 3rem 0 2rem;
+        }
+
+        .hero-left {}
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 50px;
+            padding: 0.35rem 1rem;
+            font-size: 0.78rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            margin-bottom: 1.2rem;
+            backdrop-filter: blur(6px);
+        }
+
+        .hero-badge .dot {
+            width: 7px; height: 7px;
+            background: #6EE7B7;
+            border-radius: 50%;
+            animation: blink 1.5s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        .hero h1 {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(2.6rem, 5vw, 4rem);
+            font-weight: 800;
+            line-height: 1.05;
+            margin-bottom: 0.6rem;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.2);
+            letter-spacing: -0.02em;
+        }
+
+        .hero-subtitle {
+            font-size: 1.05rem;
+            font-weight: 400;
+            opacity: 0.88;
+            margin-bottom: 1.2rem;
+            line-height: 1.6;
+            max-width: 560px;
+        }
+
+        .hero-tags {
+            display: flex;
             flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .hero-tag {
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.25);
+            border-radius: 4px;
+            padding: 0.25rem 0.65rem;
+            font-size: 0.78rem;
+            font-weight: 500;
+            letter-spacing: 0.04em;
+        }
+
+        /* Quick contact links in hero */
+        .hero-contacts {
+            display: flex;
+            flex-direction: column;
+            gap: 0.55rem;
+            margin-bottom: 2rem;
+        }
+
+        .hero-contact-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.55rem;
+        }
+
+        .hero-contact-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.22);
+            border-radius: 6px;
+            padding: 0.45rem 0.9rem;
+            color: white;
+            text-decoration: none;
+            font-size: 0.82rem;
+            font-weight: 500;
+            transition: background 0.2s, border-color 0.2s, transform 0.15s;
+            backdrop-filter: blur(4px);
+        }
+
+        .hero-contact-link:hover {
+            background: rgba(255,255,255,0.22);
+            border-color: rgba(255,255,255,0.5);
+            transform: translateY(-1px);
+            color: white;
+        }
+
+        .hero-contact-link i {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        /* Highlighted links (blog + podcast) */
+        .hero-contact-link.highlight {
+            background: rgba(255,255,255,0.18);
+            border-color: rgba(255,255,255,0.4);
+        }
+
+        .hero-contact-link.highlight:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        .hero-cta-row {
+            display: flex;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-hero {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.7rem 1.4rem;
+            border-radius: 6px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+
+        .btn-hero-primary {
+            background: white;
+            color: #667eea;
+        }
+
+        .btn-hero-primary:hover {
+            background: #f0f0ff;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .btn-hero-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255,255,255,0.5);
+        }
+
+        .btn-hero-secondary:hover {
+            background: rgba(255,255,255,0.12);
+            border-color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Photo side */
+        .hero-right {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .profile-photo-wrap {
+            position: relative;
         }
 
         .profile-photo {
             width: 200px;
             height: 200px;
-            border-radius: 50%;
-            border: 5px solid rgba(255, 255, 255, 0.3);
+            border-radius: 16px;
+            border: 3px solid rgba(255, 255, 255, 0.35);
             object-fit: cover;
-            animation: fadeIn 1s ease-out;
+            display: block;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.25);
         }
 
-        .hero-text {
-            text-align: left;
-            max-width: 600px;
+        .profile-location {
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            color: #667eea;
+            font-size: 0.72rem;
+            font-weight: 600;
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            white-space: nowrap;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
         }
 
-        .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        /* Stats bar at bottom of hero */
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1px;
+            background: rgba(255,255,255,0.1);
+            border-top: 1px solid rgba(255,255,255,0.15);
+            margin-top: 1rem;
         }
 
-        .hero p {
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
+        .hero-stat {
+            padding: 1.2rem 1.5rem;
+            background: rgba(0,0,0,0.08);
+            backdrop-filter: blur(4px);
+            text-align: center;
+        }
+
+        .hero-stat-value {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: 0.2rem;
+        }
+
+        .hero-stat-label {
+            font-size: 0.72rem;
+            opacity: 0.75;
+            letter-spacing: 0.05em;
         }
 
         /* Sections - Compact */
@@ -174,68 +386,105 @@
             line-height: 1.5;
         }
 
-        /* Skills - New attractive design */
+        /* Skills - Professional grid, no bubbles */
         .skills-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
+            gap: 1px;
             margin-top: 2rem;
+            background: #e0e0e0;
+            border: 1px solid #e0e0e0;
         }
 
         .skill-category {
             background: white;
-            padding: 1.5rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem 1.8rem;
         }
 
         .skill-category h3 {
-            color: #333;
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
-            text-align: center;
+            color: #667eea;
+            margin-bottom: 0.8rem;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
             padding-bottom: 0.5rem;
-            border-bottom: 2px solid #667eea;
+            border-bottom: 1px solid #f0f0f0;
         }
 
         .skill-tags {
             display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
+            flex-direction: column;
+            gap: 0;
         }
 
         .skill-tag {
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            color: white;
-            padding: 0.4rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
+            color: #444;
+            font-size: 0.88rem;
+            font-weight: 400;
+            padding: 0.22rem 0;
+            border-bottom: none;
+        }
+
+        .skill-tag::before {
+            content: '· ';
+            color: #667eea;
+            font-weight: 700;
+        }
+
+        /* Blog - card list, no iframes */
+        .blog-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.2rem;
+            margin-top: 2rem;
+        }
+
+        .blog-card {
+            background: white;
+            border: 1px solid #e8e8e8;
+            border-radius: 8px;
+            padding: 1.4rem 1.6rem;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            transition: box-shadow 0.2s, transform 0.2s;
+            border-left: 3px solid #667eea;
+        }
+
+        .blog-card:hover {
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+            transform: translateY(-2px);
+        }
+
+        .blog-card-date {
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #667eea;
+        }
+
+        .blog-card-title {
+            font-size: 0.97rem;
+            font-weight: 600;
+            color: #222;
+            line-height: 1.4;
+        }
+
+        .blog-card-desc {
+            font-size: 0.83rem;
+            color: #777;
+            line-height: 1.5;
+        }
+
+        .blog-card-more {
+            font-size: 0.78rem;
+            color: #667eea;
             font-weight: 500;
-            transition: transform 0.2s ease;
-        }
-
-        .skill-tag:hover {
-            transform: scale(1.05);
-        }
-
-        /* Blog iframes - Nuovi stili */
-        .blog-iframe {
-            margin: 2rem 0;
-            text-align: center;
-        }
-
-        .blog-iframe iframe {
-            width: 100%;
-            max-width: 900px;
-            height: 500px;
-            border: 2px solid #667eea;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .blog-iframe iframe:hover {
-            transform: scale(1.02);
+            margin-top: 0.3rem;
         }
 
         /* Contact Section - Nuova struttura */
@@ -399,6 +648,110 @@
             color: #ffd700;
         }
 
+        /* Community Strip — podcast + blog */
+        .community-strip {
+            background: #1a1a2e;
+            padding: 3.5rem 0;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .community-strip h2 {
+            text-align: center;
+            color: white;
+            font-size: 1.6rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .community-strip h2::after { display: none; }
+
+        .community-strip .section-intro {
+            text-align: center;
+            color: rgba(255,255,255,0.55);
+            font-size: 0.88rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .community-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .community-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 12px;
+            padding: 2rem;
+            display: flex;
+            gap: 1.2rem;
+            align-items: flex-start;
+            transition: background 0.2s, transform 0.2s;
+        }
+
+        .community-card:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-3px);
+        }
+
+        .community-card-icon {
+            font-size: 2.2rem;
+            flex-shrink: 0;
+            width: 52px;
+            height: 52px;
+            background: rgba(102,126,234,0.25);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .community-card-body { flex: 1; }
+
+        .community-card-label {
+            font-size: 0.68rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #a78bfa;
+            margin-bottom: 0.3rem;
+        }
+
+        .community-card-body h3 {
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.6rem;
+        }
+
+        .community-card-body p {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.85rem;
+            line-height: 1.65;
+            margin-bottom: 1rem;
+        }
+
+        .community-card-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: #818cf8;
+            font-size: 0.82rem;
+            font-weight: 500;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(129,140,248,0.3);
+            padding-bottom: 1px;
+            transition: color 0.2s, border-color 0.2s;
+        }
+
+        .community-card-link:hover {
+            color: #a5b4fc;
+            border-color: #a5b4fc;
+        }
+
+        @media (max-width: 768px) {
+            .community-cards { grid-template-columns: 1fr; }
+        }
+
         /* Animations */
         @keyframes fadeIn {
             from {
@@ -424,39 +777,40 @@
 
         /* Responsive */
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
+            .nav-links { display: none; }
 
-            .hero-content {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .hero-text {
-                text-align: center;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .cards-grid {
+            .hero-main {
                 grid-template-columns: 1fr;
+                padding: 2rem 0 1.5rem;
             }
+            .hero-right {
+                order: -1;
+                align-items: flex-start;
+            }
+            .hero h1 { font-size: 2.2rem; }
+            .hero-stats { grid-template-columns: repeat(2, 1fr); }
+            .hero-contact-row { flex-direction: column; }
+            .hero-contact-link { width: 100%; justify-content: flex-start; }
 
-            .skills-container {
-                grid-template-columns: 1fr;
-            }
+            .community-cards { grid-template-columns: 1fr; }
+
+            .cards-grid { grid-template-columns: 1fr; }
+
+            .skills-container { grid-template-columns: 1fr 1fr; }
 
             .contact-section {
                 grid-template-columns: 1fr;
                 gap: 2rem;
             }
 
-            .blog-iframe iframe {
-                height: 400px;
-            }
+            .blog-cards { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 480px) {
+            .skills-container { grid-template-columns: 1fr; }
+            .hero-stats { grid-template-columns: repeat(2, 1fr); }
+            .hero-cta-row { flex-direction: column; }
+            .btn-hero { width: 100%; justify-content: center; }
         }
     </style>
 </head>
@@ -471,22 +825,140 @@
                 <li><a href="#thesis">Thesis</a></li>
                 <li><a href="#contact">Contact</a></li>
                 <li><a href="#blog">Blog</a></li>
+                <li><a href="https://linktr.ee/iuseyoctobtw" target="_blank">🎙 Podcast</a></li>
             </ul>
         </nav>
     </header>
 
     <section id="home" class="hero">
         <div class="container">
-            <div class="hero-content">
-                <img src="https://fcastagnotto.github.io/images/profile.png" alt="Francesco Castagnotto" class="profile-photo">
-                <div class="hero-text">
-                    <h1>Hello world!</h1>
-                    <p>I'm Francesco Castagnotto,</p>
-                    <p>an <strong>Embedded Linux Engineer specializing in BSP and middleware development, with a strong passion for the Yocto Project and open-source technologies.</strong></p>
-                    <p>I earned a Master's Degree in Computer Engineering – Embedded Systems at the Polytechnic University of Turin, where I focused on microprocessor architectures and real-time systems</p>
-                    <p>Over the years, I've gained experience in the automotive, building automation, and computer hardware industries, contributing to embedded Linux solutions across a range of platforms.</p>
-                    <p>I'm passionate about Linux distributions, embedded development workflows, and any innovation that helps us rethink how technology enhances our lives.</p>
+            <div class="hero-main">
+                <!-- LEFT: text + contacts -->
+                <div class="hero-left">
+                    <div class="hero-badge">
+                        <span class="dot"></span>
+                        Open to work · Hybrid &amp; Remote
+                    </div>
+
+                    <h1>Francesco<br>Castagnotto</h1>
+
+                    <p class="hero-subtitle">
+                        <strong>Senior Embedded Linux Platform Engineer</strong> — specialising in Yocto BSP development, Linux platform integration, ARM bring-up, and open source engineering.
+                    </p>
+
+                    <div class="hero-tags">
+                        <span class="hero-tag">Yocto Project</span>
+                        <span class="hero-tag">BSP Development</span>
+                        <span class="hero-tag">Linux Kernel</span>
+                        <span class="hero-tag">ARM</span>
+                        <span class="hero-tag">U-Boot</span>
+                        <span class="hero-tag">Open Source</span>
+                        <span class="hero-tag">Docker</span>
+                    </div>
+
+                    <!-- Quick contacts -->
+                    <div class="hero-contacts">
+                        <div class="hero-contact-row">
+                            <a href="mailto:fcastagnotto@linux.com" class="hero-contact-link">
+                                <i class="fas fa-envelope"></i> fcastagnotto@linux.com
+                            </a>
+                            <a href="https://www.linkedin.com/in/fcastagnotto/" target="_blank" class="hero-contact-link">
+                                <i class="fab fa-linkedin"></i> linkedin.com/in/fcastagnotto
+                            </a>
+                            <a href="https://github.com/fcastagnotto" target="_blank" class="hero-contact-link">
+                                <i class="fab fa-github"></i> github.com/fcastagnotto
+                            </a>
+                        </div>
+                        <div class="hero-contact-row">
+                            <a href="https://fcastagnotto.wordpress.com" target="_blank" class="hero-contact-link highlight">
+                                <i class="fab fa-wordpress"></i> Blog — fcastagnotto.wordpress.com
+                            </a>
+                            <a href="https://linktr.ee/iuseyoctobtw" target="_blank" class="hero-contact-link highlight">
+                                <i class="fas fa-podcast"></i> Podcast — "I use Yocto btw"
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="hero-cta-row">
+                        <a href="#about" class="btn-hero btn-hero-primary">
+                            <i class="fas fa-user"></i> About me
+                        </a>
+                        <a href="https://fcastagnotto.github.io/files/FrancescoCASTAGNOTTO_Resume.pdf" target="_blank" class="btn-hero btn-hero-secondary">
+                            <i class="fas fa-file-pdf"></i> Download Resume
+                        </a>
+                    </div>
                 </div>
+
+                <!-- RIGHT: photo -->
+                <div class="hero-right">
+                    <div class="profile-photo-wrap">
+                        <img src="https://fcastagnotto.github.io/images/profile.png" alt="Francesco Castagnotto" class="profile-photo">
+                        <span class="profile-location">📍 Fossano, Italy</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats bar -->
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <div class="hero-stat-value">10+</div>
+                    <div class="hero-stat-label">Years of experience</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-value">5+</div>
+                    <div class="hero-stat-label">Companies & industries</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-value">🎙</div>
+                    <div class="hero-stat-label">Podcast host</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-value">OSS</div>
+                    <div class="hero-stat-label">Open Source advocate</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMMUNITY: Podcast + Blog -->
+    <section class="community-strip">
+        <div class="container">
+            <h2>Community &amp; Content</h2>
+            <p class="section-intro">Beyond engineering — sharing knowledge through a podcast and a technical blog</p>
+            <div class="community-cards">
+
+                <div class="community-card fade-in">
+                    <div class="community-card-icon">🎙️</div>
+                    <div class="community-card-body">
+                        <div class="community-card-label">Podcast · Jul 2025 – Present</div>
+                        <h3>"I use Yocto btw"</h3>
+                        <p>
+                            Italian-language technical podcast focused on Embedded Linux, Yocto Project, BSP development,
+                            and open source technologies for industrial and automotive systems.
+                            Episodes cover real-world engineering, tools, workflows, and community stories.
+                        </p>
+                        <a href="https://linktr.ee/iuseyoctobtw" target="_blank" class="community-card-link">
+                            <i class="fas fa-external-link-alt"></i> Listen &amp; subscribe → linktr.ee/iuseyoctobtw
+                        </a>
+                    </div>
+                </div>
+
+                <div class="community-card fade-in">
+                    <div class="community-card-icon">✍️</div>
+                    <div class="community-card-body">
+                        <div class="community-card-label">Technical Blog · Since 2013</div>
+                        <h3>Embedded Linux &amp; Yocto Blog</h3>
+                        <p>
+                            Articles on Linux kernel, Yocto layers, device drivers, hardware bring-up, boot processes,
+                            and practical tips for embedded engineers. From GPIO expanders to iMX93 eMMC boot — real
+                            problems, real solutions.
+                        </p>
+                        <a href="https://fcastagnotto.wordpress.com" target="_blank" class="community-card-link">
+                            <i class="fas fa-external-link-alt"></i> Read the blog → fcastagnotto.wordpress.com
+                        </a>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -498,17 +970,17 @@
                 <div class="card fade-in">
                     <div class="card-icon">🎓</div>
                     <h3>Education</h3>
-                    <p>Master's Degree in Computer Engineering – Embedded Systems at the Polytechnic University of Turin, with a deep focus on microprocessor systems and low-level software design.</p>
+                    <p>MSc &amp; BSc in Computer Engineering at Politecnico di Torino, specialising in software and digital systems engineering, embedded Linux, multicore architectures, and system programming.</p>
                 </div>
                 <div class="card fade-in">
                     <div class="card-icon">💼</div>
                     <h3>Experience</h3>
-                    <p>Professional experience as an Embedded Linux Engineer in sectors such as automotive, building automation, and computer hardware, where I contributed to BSP integration, device driver development, and embedded platform customization.</p>
+                    <p>10+ years across industrial, automotive, and IoT environments. Currently Open Source Tech Lead &amp; Embedded Linux Platform Engineer at Prima Electro — contributing to the full embedded Linux lifecycle, from hardware integration to production deployment.</p>
                 </div>
                 <div class="card fade-in">
                     <div class="card-icon">🚀</div>
                     <h3>Passion</h3>
-                    <p>I'm deeply enthusiastic about embedded Linux, the Yocto ecosystem, free and open-source software, and everything that fosters technological creativity and innovation.</p>
+                    <p>Deep enthusiasm for the Yocto ecosystem, Linux internals, free and open source software, and upstream-oriented development. Host of the <em>"I use Yocto btw"</em> Italian podcast and author of a technical embedded Linux blog.</p>
                 </div>
             </div>
         </div>
@@ -519,90 +991,67 @@
             <h2>Technical Skills</h2>
             <div class="skills-container">
                 <div class="skill-category fade-in">
-                    <h3>Embedded Software</h3>
+                    <h3>Embedded Linux &amp; BSP</h3>
                     <div class="skill-tags">
-                        <span class="skill-tag">bash</span>
-                        <span class="skill-tag">C</span>
-                        <span class="skill-tag">C++</span>
-                        <span class="skill-tag">python</span>
-                        <span class="skill-tag">awk</span>
+                        <span class="skill-tag">Yocto Project / Poky</span>
+                        <span class="skill-tag">Linux Kernel</span>
+                        <span class="skill-tag">BSP Development</span>
+                        <span class="skill-tag">Device Tree</span>
+                        <span class="skill-tag">U-Boot</span>
                     </div>
                 </div>
                 <div class="skill-category fade-in">
-                    <h3>BSP Build</h3>
+                    <h3>Hardware &amp; Architecture</h3>
                     <div class="skill-tags">
-                        <span class="skill-tag">Yocto</span>
-                        <span class="skill-tag">Linux kernel</span>
-                        <span class="skill-tag">buildroot</span>
+                        <span class="skill-tag">ARM / ARMhf / ARM64</span>
+                        <span class="skill-tag">iMX6 / iMX8 / iMX9</span>
+                        <span class="skill-tag">OMAP / Sunxi</span>
+                        <span class="skill-tag">SoC / SoM bring-up</span>
+                        <span class="skill-tag">PCB &amp; schematics debug</span>
                     </div>
                 </div>
                 <div class="skill-category fade-in">
-                    <h3>Build, Debug & Patches</h3>
+                    <h3>Programming</h3>
                     <div class="skill-tags">
-                        <span class="skill-tag">Linux drivers</span>
-                        <span class="skill-tag">device tree</span>
-                        <span class="skill-tag">u-boot</span>
+                        <span class="skill-tag">C / C++</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Bash / AWK</span>
+                        <span class="skill-tag">Qt5</span>
                     </div>
                 </div>
                 <div class="skill-category fade-in">
-                    <h3>Cross-compilation</h3>
+                    <h3>DevOps &amp; Tooling</h3>
                     <div class="skill-tags">
-                        <span class="skill-tag">ARM</span>
-                        <span class="skill-tag">ARMhf</span>
-                        <span class="skill-tag">ARM64</span>
-                        <span class="skill-tag">i386</span>
+                        <span class="skill-tag">Git / GitLab / GitHub</span>
+                        <span class="skill-tag">Docker / LXC</span>
+                        <span class="skill-tag">Cross-compilation toolchains</span>
                     </div>
                 </div>
                 <div class="skill-category fade-in">
-                    <h3>OS Integration</h3>
+                    <h3>OS &amp; System Integration</h3>
                     <div class="skill-tags">
-                        <span class="skill-tag">SysVinit</span>
-                        <span class="skill-tag">Systemd</span>
-                        <span class="skill-tag">middleware</span>
+                        <span class="skill-tag">Systemd / SysVinit</span>
+                        <span class="skill-tag">Middleware integration</span>
+                        <span class="skill-tag">Production automation</span>
+                        <span class="skill-tag">RPM-based release management</span>
+                        <span class="skill-tag">Remote debugging infrastructure</span>
                     </div>
                 </div>
                 <div class="skill-category fade-in">
-                    <h3>Version Control</h3>
+                    <h3>Automotive</h3>
                     <div class="skill-tags">
-                        <span class="skill-tag">GIT</span>
-                        <span class="skill-tag">Github</span>
-                        <span class="skill-tag">Gitlab</span>
-                        <span class="skill-tag">SVN</span>
+                        <span class="skill-tag">CAN / CANopen</span>
+                        <span class="skill-tag">IVI navigation systems</span>
+                        <span class="skill-tag">GENIVI / LXCBENCH</span>
                     </div>
                 </div>
                 <div class="skill-category fade-in">
-                    <h3>High-level Software</h3>
+                    <h3>Methodology &amp; Collaboration</h3>
                     <div class="skill-tags">
-                        <span class="skill-tag">python</span>
-                        <span class="skill-tag">sql</span>
-                        <span class="skill-tag">html</span>
-                        <span class="skill-tag">php</span>
-                    </div>
-                </div>
-                <div class="skill-category fade-in">
-                    <h3>Teamwork</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Agile</span>
-                        <span class="skill-tag">Scrum</span>
-                        <span class="skill-tag">Jira</span>
-                        <span class="skill-tag">Confluence</span>
-                        <span class="skill-tag">Trello</span>
-                        <span class="skill-tag">Slack</span>
-                        <span class="skill-tag">Teams</span>
-                    </div>
-                </div>
-                <div class="skill-category fade-in">
-                    <h3>Hardware Debug</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">SoC</span>
-                        <span class="skill-tag">SoM</span>
-                        <span class="skill-tag">OMAP</span>
-                        <span class="skill-tag">Sunxi</span>
-                        <span class="skill-tag">PCBs</span>
-                        <span class="skill-tag">iMX53</span>
-                        <span class="skill-tag">iMX6</span>
-                        <span class="skill-tag">iMX8</span>
-                        <span class="skill-tag">iMX9</span>                                                
+                        <span class="skill-tag">Agile / Scrum</span>
+                        <span class="skill-tag">Jira / Confluence</span>
+                        <span class="skill-tag">Cross-team technical leadership</span>
+                        <span class="skill-tag">Engineering documentation</span>
                     </div>
                 </div>
             </div>
@@ -614,28 +1063,19 @@
     <h2>Master's Thesis</h2>
     <div class="card fade-in" style="max-width: 900px; margin: 0 auto;">
       <div class="card-icon">📘</div>
-      <h3>Analysis of Linux Containers Virtualization on ARM Architectures</h3>
+      <h3>Analysis of Linux Containers Virtualisation on ARM Architectures</h3>
+      <p style="font-size:0.8rem; color:#667eea; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:1rem;">Politecnico di Torino · 2013</p>
       <p>
-        My experimental thesis focused on evaluating Linux Containers (LXC) performance on ARM-based embedded systems, both single-core and multi-core.
-        The activity involved compiling and building embedded GNU/Linux operating systems for Freescale and Texas Instruments hardware platforms.
+        Experimental research evaluating LXC performance on single and multi-core ARM embedded systems.
+        Demonstrated per-core container isolation on Freescale and TI hardware using cross-compiled Phoronix benchmarks.
+        Work contributed to the <strong>GENIVI Alliance</strong> via the <strong>LXCBENCH</strong> project, in collaboration with
+        <strong>Mentor Graphics — Embedded Software Division</strong>, and referenced in
+        <em>Handbook of Research on Embedded Systems Design</em> (IGI Global, 2014).
       </p>
-      <p>
-        The project required extensive use of cross-compilation, Linux kernel configuration (via <code>make menuconfig</code>), and custom builds integrating the
-        <strong>Phoronix Test Suite</strong> to benchmark different aspects of system performance.
-      </p>
-      <p>
-        The goal was to measure and demonstrate how Linux Containers distribute workloads across processor cores. The results confirmed that with as many or fewer containers than CPU cores,
-        each container could be effectively "reserved" on a dedicated core, ensuring optimal separation and parallelism.
-      </p>
-      <p>
-        This work was carried out in collaboration with <strong>Mentor Graphics – Embedded Software Division</strong> and contributed to the
-        <a href="https://github.com/fcastagnotto/lxcbench" target="_blank">Genivi Alliance project <strong>LXCBENCH</strong></a>.
-      </p>
-       <p style="margin-top: 1rem;">
-        📄 Download the full thesis as PDF:  
-        <a href="https://fcastagnotto.github.io/files/CASTAGNOTTOFrancesco_tesi_magistrale.pdf" target="_blank">
-          CASTAGNOTTOFrancesco_tesi_magistrale.pdf
-        </a>
+      <p style="margin-top: 1rem;">
+        <a href="https://github.com/fcastagnotto/lxcbench" target="_blank">🔗 LXCBENCH on GitHub</a>
+        &nbsp;&nbsp;·&nbsp;&nbsp;
+        <a href="https://fcastagnotto.github.io/files/CASTAGNOTTOFrancesco_tesi_magistrale.pdf" target="_blank">📄 Download thesis PDF</a>
       </p>
     </div>
   </div>
@@ -684,6 +1124,15 @@
                         </div>
                     </div>
                     <div class="contact-item">
+                        <i class="fas fa-podcast"></i>
+                        <div class="contact-text">
+                            <span class="contact-label">Podcast</span>
+                            <span class="contact-value">
+                                <a href="https://linktr.ee/iuseyoctobtw" target="_blank">"I use Yocto btw" — linktr.ee/iuseyoctobtw</a>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="contact-item">
                         <i class="fas fa-globe"></i>
                         <div class="contact-text">
                             <span class="contact-label">Website</span>
@@ -720,48 +1169,53 @@
 
 <section id="blog" class="section">
   <div class="container">
-    <h2>Interesting Blog Posts</h2>
+    <h2>From the Blog</h2>
+    <div class="blog-cards">
 
-    <div class="blog-iframe">
-      <iframe src="https://fcastagnotto.wordpress.com/2020/05/25/gpio-expander-mcp23s17-on-linux-embedded/" 
-              title="GPIO Expander"
-              loading="lazy"
-              frameborder="0"></iframe>       
-    </div>
-  <div class="blog-iframe">
-    <iframe src="https://fcastagnotto.wordpress.com/2025/02/26/i-mx93-boot-from-emmc/"
-              title="iMX93 boot from eMMC"
-              loading="lazy"
-              frameborder="0"></iframe> 
-    </div>
-  </div>      
-    <div class="blog-iframe">
-      <iframe src="https://fcastagnotto.wordpress.com/2014/09/12/reinstall-grub-with-a-gnulinux-livecd-or-liveusb/" 
-              title="Reinstall GRUB with a GNU\Linux LiveCD or LiveUSB"
-              loading="lazy"
-              frameborder="0"></iframe> 
-    </div>
-    <div class="blog-iframe">
-      <iframe src="https://fcastagnotto.wordpress.com/2013/04/29/usb_modeswitch-ubuntu-systems/" 
-              title="USB_Modeswitch"
-              loading="lazy"
-              frameborder="0"></iframe> 
+      <a href="https://fcastagnotto.wordpress.com/2025/02/26/i-mx93-boot-from-emmc/" target="_blank" class="blog-card fade-in">
+        <div class="blog-card-date">Feb 2025</div>
+        <div class="blog-card-title">i.MX93 Boot from eMMC</div>
+        <div class="blog-card-desc">Step-by-step guide to configuring eMMC boot on the NXP i.MX93 platform with Yocto — fuse settings, U-Boot configuration, and production deployment notes.</div>
+        <div class="blog-card-more">Read post →</div>
+      </a>
+
+      <a href="https://fcastagnotto.wordpress.com/2025/04/03/boinc-donate-your-idle-computing-to-science/" target="_blank" class="blog-card fade-in">
+        <div class="blog-card-date">Apr 2025</div>
+        <div class="blog-card-title">BOINC — Donate Your Idle Computing to Science</div>
+        <div class="blog-card-desc">How to set up BOINC on GNU/Linux to contribute spare CPU cycles to distributed scientific research projects.</div>
+        <div class="blog-card-more">Read post →</div>
+      </a>
+
+      <a href="https://fcastagnotto.wordpress.com/2020/05/25/gpio-expander-mcp23s17-on-linux-embedded/" target="_blank" class="blog-card fade-in">
+        <div class="blog-card-date">May 2020</div>
+        <div class="blog-card-title">GPIO Expander MCP23S17 on Linux Embedded</div>
+        <div class="blog-card-desc">Integrating the MCP23S17 SPI GPIO expander into an embedded Linux system — device tree configuration, driver setup, and practical usage examples.</div>
+        <div class="blog-card-more">Read post →</div>
+      </a>
+
+      <a href="https://fcastagnotto.wordpress.com/2024/05/27/fix-of-endorfy-wireless-keyboard-on-gnu-linux/" target="_blank" class="blog-card fade-in">
+        <div class="blog-card-date">May 2024</div>
+        <div class="blog-card-title">Fix Endorfy Wireless Keyboard on GNU/Linux</div>
+        <div class="blog-card-desc">Diagnosing and resolving HID compatibility issues with the Endorfy wireless keyboard on Linux — a practical debugging walkthrough.</div>
+        <div class="blog-card-more">Read post →</div>
+      </a>
+
+      <a href="https://fcastagnotto.wordpress.com/2014/09/12/reinstall-grub-with-a-gnulinux-livecd-or-liveusb/" target="_blank" class="blog-card fade-in">
+        <div class="blog-card-date">Sep 2014</div>
+        <div class="blog-card-title">Reinstall GRUB with a GNU/Linux Live CD or USB</div>
+        <div class="blog-card-desc">A reliable procedure to recover and reinstall GRUB bootloader using a GNU/Linux live environment — still relevant today.</div>
+        <div class="blog-card-more">Read post →</div>
+      </a>
+
+      <a href="https://fcastagnotto.wordpress.com" target="_blank" class="blog-card fade-in" style="border-left-color: #764ba2; background: #f9f7ff;">
+        <div class="blog-card-date" style="color: #764ba2;">All posts</div>
+        <div class="blog-card-title">View all articles on the blog</div>
+        <div class="blog-card-desc">More posts on embedded Linux, Yocto, kernel configuration, open source tools, and engineering workflows.</div>
+        <div class="blog-card-more" style="color: #764ba2;">Visit blog →</div>
+      </a>
+
     </div>
   </div>
-  <div class="blog-iframe">
-    <iframe src="https://fcastagnotto.wordpress.com/2024/05/27/fix-of-endorfy-wireless-keyboard-on-gnu-linux/"
-              title="Endorfy wireless keyboard on GNU/Linux"
-              loading="lazy"
-              frameborder="0"></iframe> 
-    </div>
-  </div>
-  <div class="blog-iframe">
-    <iframe src="https://fcastagnotto.wordpress.com/2025/04/03/boinc-donate-your-idle-computing-to-science/"
-              title="Boinc - donate your idle computing to science"
-              loading="lazy"
-              frameborder="0"></iframe> 
-    </div>
-  </div>  
 </section>
 
 
@@ -770,8 +1224,9 @@
             <div class="social-links">
                 <a href="mailto:fcastagnotto@linux.com" title="Email" target="_blank">&#x1F4E8;</a>
                 <a href="https://www.linkedin.com/in/fcastagnotto/" title="LinkedIn" target="_blank"><i class="fab fa-linkedin"></i></a>
-        <a href="https://fcastagnotto.wordpress.com" title="WordPress Blog" target="_blank"><i class="fab fa-wordpress"></i></a>                
-        <a href="https://github.com/fcastagnotto" title="GitHub" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://fcastagnotto.wordpress.com" title="WordPress Blog" target="_blank"><i class="fab fa-wordpress"></i></a>
+                <a href="https://linktr.ee/iuseyoctobtw" title="I use Yocto btw — Podcast" target="_blank"><i class="fas fa-podcast"></i></a>
+                <a href="https://github.com/fcastagnotto" title="GitHub" target="_blank"><i class="fab fa-github"></i></a>
             </div>
             <p>&copy; 2025 Francesco Castagnotto. All rights reserved.</p>
             <p>Visit: <strong>fcastagnotto.github.io</strong></p>
